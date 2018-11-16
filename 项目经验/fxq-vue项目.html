@@ -5,37 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>中国反洗钱监测分析二代系统-vue</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    />
   </head>
   <body>
-    <h3>中国反洗钱数据接收子系统</h3>
-    <div>
-      <p>前后分离</p>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
-    <div>
-      <p>前端技术架构</p>
-      <ul>
-        <li>element-UI</li>
-        <li>vue</li>
-        <li>vuex</li>
-        <li>vue-router</li>
-        <li>axios</li>
-        <li></li>
-      </ul>
-    </div>
-    <div>
-        <p>用到的工具</p>
-        <ul>
-            <li>编辑器：VScode</li>
-            <li>版本管理：svn</li>
-            <li>文件对比：winMerge</li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
+    <div id="app">
+            
+    <el-card>
+        <div slot="header"><span>中国反洗钱数据接收子系统</span></div>
+        <el-row class="appContent">
+          <el-col :span="20" :offset="1">
+                <el-collapse v-model="activeName" accordion>
+                        <el-collapse-item   title="前后分离" name="1">
+                           <el-row>
+                             <el-col  :span="22" :offset="1">
+                              <p>
+                                  前后交互界面清晰，前后代码都便于维护，后端接口简洁。
+                              </p>
+                             </el-col>
+                           </el-row>
+                        </el-collapse-item>
+                        <el-collapse-item   title="前端技术" name="2">
+                           <el-row>
+                             <el-col  :span="22" :offset="1">
+                                  <div v-for="(item,idx) in contentVue" :key='idx'>
+                                          <p>{{item.lable}}</p>
+                                      </div>
+                             </el-col>
+                           </el-row>
+                        </el-collapse-item>
+                        <el-collapse-item   title="用到的工具" name="3">
+                           <el-row>
+                             <el-col  :span="22" :offset="1">
+                                  <div v-for="(item,idx) in contentTools" :key='idx'>
+                                          <p>{{item.tool}}</p>
+                                      </div>
+                             </el-col>
+                           </el-row>
+                        </el-collapse-item>
+                        <el-collapse-item   title="更多" name="4">
+                           <el-row>
+                             <el-col  :span="22" :offset="1">
+                               <div>
+                               </div>
+                             </el-col>
+                           </el-row>
+                        </el-collapse-item>
+                      </el-collapse>
+          </el-col>
+        </el-row> 
+        </el-card>
+      
+
   </body>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: function() {
+        return {
+            activeName:'',
+            contentVue:[
+                {lable:'element-ui'},
+                {lable:'vue'},
+                {lable:'vuex'},
+                {lable:'vue-router'},
+                {lable:'axios'},
+                {lable:''},
+            ],
+            contentTools:[
+                {tool:'编辑器：VScode'},
+                {tool:'版本管理：svn'},
+                {tool:'文件对比：winMerge'},
+                {tool:''},
+                {tool:''},
+            ]
+        };
+      }
+    });
+  </script>
+ 
+  <style>
+
+  </style>
 </html>
