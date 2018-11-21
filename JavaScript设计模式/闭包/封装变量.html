@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<!-- 版本1 -->
+<!-- <script>
+ 
+    var mult = function () {
+        debugger
+        var a = 1
+        for (var i = 0, l = arguments.length; i < l; i++) {
+            a = a * arguments[i]
+        }
+
+        return a
+    }
+    console.log(mult(2, 3, 4))
+</script> -->
+
+<!-- 版本2 -->
+<script>
+    var mult = (function () {
+        var cache = {}
+        var cacheFn = function () {
+            var a = 1;
+            for (var i = 0, len = arguments.length; i < len; i++) {
+                a = a * arguments[i]
+            }
+            return a
+        }
+        return function () {
+            var args = [].join.call(arguments, ',');
+            if (cache[args]) {
+                return cache[args]
+            };
+            return cache[args] = cacheFn.apply(null, arguments)
+        }
+
+    })()
+</script>

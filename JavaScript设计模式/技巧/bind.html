@@ -30,7 +30,7 @@
             args = [].slice(arguments);
 
         return function () {
-            return self.apply(context, [].concat.call(args, []))
+            return self.apply(context, [].concat.call(args, [].slice.call(arguments)))
         }
     }
     var obj = {
@@ -38,8 +38,34 @@
     };
 
     var func = function (a, b, c, d) {
-        alert(this.name); // 输出：sven alert ( [ a, b, c, d ] ) // 输出：[ 1, 2, 3, 4 ]
+        alert(this.name); // 输出：sven 
+        alert([a, b, c, d]) // 输出：[ 1, 2, 3, 4 ]
     }.bind(obj, 1, 2);
 
     func(3, 4)
 </script>
+<!-- <script>
+    // 1.bind 只是改变了函数中的this指向  
+    // 2.改变函数中的this指向的同时 进行参数传递 
+    Function.prototype.mybind = function () {
+        var self = this,
+            context = [].unshift.call(arguments),
+            args = [].slice.call(arguments);
+        return function () {
+            return self.apply(context, args.concat([].slice(arguments)))
+
+        }
+
+
+    }
+    var obj = {
+        name: 'seven'
+    }
+    var func = function () {
+        alert(this.name)
+        console.log(arguments)
+
+    }.bind(obj, 1, 2)
+
+    func(3, 4)
+</script> -->

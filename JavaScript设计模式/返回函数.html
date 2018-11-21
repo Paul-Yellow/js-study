@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 判断数据类型
+
+    // var isString = function (obj) {
+    //     return Object.prototype.toString.call(obj) === '[object String]';
+    // };
+
+    // var isArray = function (obj) {
+    //     return Object.prototype.toString.call(obj) === '[object Array]';
+    // };
+
+    // var isNumber = function (obj) {
+    //     return Object.prototype.toString.call(obj) === '[object Number]';
+    // };
+
+
+
+    // 进行封装
+    // var isType = function (type) {
+    //     return function (obj) {
+    //         return Object.prototype.toString.call(obj) === '[object ' + type + ']'
+    //     }
+
+    // }
+
+    // var isString = isType('String')
+    // alert(isString('111'))
+
+
+
+    var Type = {}
+    for (var i = 0, type; type = ['String', 'Array', 'Number'][i++];) {
+
+        (function (type) {
+            Type['is' + type] = function (obj) {
+                return Object.prototype.toString.call(obj) === '[object ' + type + ']'
+            }
+        })(type)
+
+        console.log(1111)
+
+    }
+    alert(Type.isString('11111'))
+</script>
