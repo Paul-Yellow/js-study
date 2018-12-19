@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    Function.prototype.uncurrying = function () {
+        var self = this;
+        return function () {
+            var obj = Array.prototype.shift.call(arguments);
+            return self.apply(obj, arguments);
+        };
+    }
+    // debugger
+    const obj = {
+        name: 'seven'
+    }
+    // var call = Function.prototype.call.uncurrying();
+    var fn = function (name) {
+        console.log(name);
+        console.log(this)
+    };
+    Function.prototype.call.call(fn, obj, '1')
+    // 1. Function.prototype.call方法中的this修改为fn
+    // 2. call()执行
+    // 3. 
+    // call(fn, window, 'sven'); // 输出：sven
+
+    // 正常的使用的时候
+    fn.call(obj, 'aa')
+    // 1. fn 中的this 替换为obj
+    // 2. fn()
+</script>
+
+<script>
+    function fn1(name) {
+        console.log(1);
+        console.log(name,'fn1')
+    }
+
+    function fn2(name) {
+        console.log(name,'fn2');
+    }
+
+    fn1.call(fn2); //输出 1
+    // fn1中的this替换成fn2 
+    // fn1执行（）
+
+    fn1.call.call(fn2, window,'seven'); //输出 2
+    // call()中的this 替换成fn2
+    // call()执行
+</script>
