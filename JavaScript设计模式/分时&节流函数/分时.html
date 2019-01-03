@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+</body>
+
+</html>
+<!-- <script>
+    // 需要传递三个参数 我们需要创建多少个， 回调函数， 每批创建几个
+    var timeChunk = function(ary, fn, count) {
+        var obj,
+            timer;
+        var start = function() {
+            for (var i = 0; i < Math.min(count || 1, ary.length); i++) {
+                obj = ary.shift()
+                fn(obj)
+            }
+
+        }
+        return function() {
+            timer = setInterval(() => {
+                if (ary.length === 0) {
+                    return clearInterval(timer)
+                }
+                start();
+            }, 500);
+
+        }
+
+    }
+    var ary = [];
+
+    for (var i = 1; i <= 10; i++) {
+        ary.push(i);
+    };
+
+    var renderFriendList = timeChunk(ary, function(n) {
+        var div = document.createElement('div');
+        div.innerHTML = n;
+        document.body.appendChild(div);
+    }, 2);
+
+    renderFriendList();
+</script> -->
+
+
+<script>
+    var timeChunk = function(ary, fn, count) {
+        var obj,
+            timer;
+        var start = function() {
+            for (var i = 0; i < Math.min(count || 1, ary.length); i++) {
+                obj = ary.shift()
+                fn(obj)
+            }
+        }
+        return function() {
+            timer = setInterval(() => {
+                if (ary.length === 0) {
+                    return clearInterval(timer)
+                }
+                start()
+            }, 200);
+
+        }
+
+
+    }
+    var ary = [];
+
+    for (var i = 1; i <= 10; i++) {
+        ary.push(i);
+    };
+
+    var renderFriendList = timeChunk(ary, function(n) {
+        var div = document.createElement('div');
+        div.innerHTML = n;
+        document.body.appendChild(div);
+    }, 2);
+
+    renderFriendList();
+</script>
