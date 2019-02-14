@@ -14,9 +14,9 @@
 
 </html>
 <script>
-    Function.prototype.uncurrying = function () {
+    Function.prototype.uncurrying = function() {
         var self = this;
-        return function () {
+        return function() {
             var obj = Array.prototype.shift.call(arguments);
             return self.apply(obj, arguments);
         };
@@ -25,38 +25,39 @@
     const obj = {
         name: 'seven'
     }
-    // var call = Function.prototype.call.uncurrying();
-    var fn = function (name) {
+    //  var call = Function.prototype.call.uncurrying();
+    var fn = function(name) {
         console.log(name);
-        console.log(this)
+        console.log(this);
     };
+    // call()
     Function.prototype.call.call(fn, obj, '1')
-    // 1. Function.prototype.call方法中的this修改为fn
-    // 2. call()执行
-    // 3. 
-    // call(fn, window, 'sven'); // 输出：sven
+    // 1. 把 Function.prototype.call()方法中的 this关键字  更换为fn
+    // 2.  Function.prototype.call(window, '1')执行
+    // 3.this中的关键字换成window  
+    // this()
 
-    // 正常的使用的时候
-    fn.call(obj, 'aa')
-    // 1. fn 中的this 替换为obj
-    // 2. fn()
+
+    fn.call(obj, 2)
+    // 把fn中的this 关键字更换为 obj 参数为2
+    // fn()
 </script>
-
+<!-- 
 <script>
     function fn1(name) {
         console.log(1);
-        console.log(name,'fn1')
+        console.log(name, 'fn1')
     }
 
     function fn2(name) {
-        console.log(name,'fn2');
+        console.log(name, 'fn2');
     }
 
     fn1.call(fn2); //输出 1
     // fn1中的this替换成fn2 
     // fn1执行（）
 
-    fn1.call.call(fn2, window,'seven'); //输出 2
-    // call()中的this 替换成fn2
-    // call()执行
-</script>
+    fn1.call.call(fn2, window, 'seven'); //输出 2
+    // call()中的this关键字 替换成fn2
+    // fn1.call()执行 将fn1中的关键字更换为window
+</script> -->
