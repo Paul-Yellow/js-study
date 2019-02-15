@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>let & const</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 会按照作用域链进行查找
+    {
+        let a = 2 
+        {
+            console.log(a)
+        }
+        console.log(a)
+
+    }
+
+    // 报错
+    // {
+    //     {
+    //         let a = 1
+    //     }
+    //     console.log(a)
+    // }
+
+
+    // 暂时性死区
+    // 只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响
+    var tmp = 123;
+
+    if (true) {
+        tmp = 'abc'; // ReferenceError
+        let tmp;
+    }
+</script>

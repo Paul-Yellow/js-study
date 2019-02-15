@@ -2,7 +2,7 @@
 
 ## js设计模式
 
-## http
+## es6
 
 ## ajax
 
@@ -14,7 +14,7 @@
 
 ## mock
 
-## es6
+## http 
 
 ## react
 

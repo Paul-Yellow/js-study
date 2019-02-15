@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象解构</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+{
+    // 数组的元素是按次序排列的，变量的取值由它的位置决定,对象的属性没有次序，变量必须与属性同名，才能取到正确的值
+    {
+        let {foo, bar } = { foo: "aaa", bar: "bbb" }
+        console.log(foo) // "aaa"
+        console.log(bar) // "bbb"
+    }
+    {
+        let {bar, foo} = { foo: "aaa", bar: "bbb" }
+        console.log(foo) // "aaa"
+        console.log(bar) // "bbb" 
+    }
+    {
+        let { baz } = { foo: "aaa", bar: "bbb" };
+        console.log(baz) // undefined
+    }
+    {
+        let { foo:baz } = { foo: "aaa", bar: "bbb" };
+        console.log(baz) // undefined
+        //上面代码中，foo是匹配的模式，baz才是变量。真正被赋值的是变量baz，而不是模式foo。
+    }
+    {
+        // 嵌套解构
+        let obj = {
+            p: [
+                'Hello',
+                { y: 'World' }
+            ]
+        };
+        let {p, p:[x,{y}]} = obj 
+        console.log(p)
+        console.log(x)
+        console.log(y)
+            
+    }
+    {
+        // 嵌套解构
+        let node = {
+            loc:{
+                start:{
+                    line:1,
+                    column:5
+                }
+            }
+        }
+        let {loc, loc:{ start }, loc: {start: { line } } } = node
+        console.log(loc)
+        console.log(start)
+        console.log(line)
+    }
+    {
+        // 指定默认值  默认值生效的条件事对象的属性值必须为undefined
+        let obj = { a : 'a'}
+        
+        let { b } = obj
+        console.log(b) // undefined
+
+        let { x = 1 } = obj
+        console.log(x)// 1
+
+        let {a = 1 } = obj
+        console.log(a) // a
+
+        // let { b:{c} } = obj
+        // console.log(c)// 报错
+        
+    }
+
+    {
+        // 对于已经声明的变量进行赋值的时候需要多加注意
+        {
+            //错误写法
+            // let x;
+            // { x } = {x:'x'}
+            // 这样写会报错因为js会把下面的{ x } 解析为代码块
+
+        }
+        {
+            //正确写法，不可以让大括号处于开始的位置
+            let x;
+            ({x} = {x:'x'})
+
+
+        }
+
+    }
+     
+     
+}
+
+</script>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组解构</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 模式情况
+{
+    {
+        // 模式1
+        let [foo, [[bar], baz]] = [1, [[2], 3]];
+        console.log(foo) // 1
+        console.log(bar) // 2
+        console.log(baz)// 3
+    }
+    {
+        // 模式2
+        let [ , , third] = ["foo", "bar", "baz"];
+        console.log(third)// "baz"
+    }
+    {
+        // 模式3
+        let [first, ,third ] = ["foo",'bar','baz']
+        console.log(first)
+        console.log(third)
+    }
+    {
+        // 模式4
+        let [head, ...tail] = [1, 2, 3, 4]
+        console.log(head)
+        console.log(tail)
+    }
+    {
+        // 模式5
+        let [a, b, ...c] = ['1']
+        console.log(a)
+        console.log(b) // undefined
+        console.log(c) // []
+    }
+}
+
+// 自带默认值 当对应的数组中有undefined的时候默认值生效
+{
+    {
+        let [foo = true] = [];
+        console.log(foo) // true
+    }
+    {
+        let [x, y = 'b'] = ['a']
+        console.log(x)// x='a', 
+        console.log(y)// y='b'
+    }
+    {
+        let [x, y = 'b'] = ['a', undefined]
+         console.log(x)// x='a'
+         console.log(y)// y='b'
+    }
+}
+
+
+
+
+
+// ES6 内部使用严格相等运算符（===），判断一个位置是否有值,当数组中有一个为null 的时候默认值不生效因为null不严格等于undefined
+
+{
+    {
+     let [x = 1] = [undefined] 
+     console.log(x) // 1   
+    }
+    {
+    let [x = 1] = [null] 
+    console.log(x) // null
+    }
+}
+
+
+
+
+</script>
