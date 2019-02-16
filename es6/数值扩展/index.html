@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数值的扩展运算</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //Number.isFinite
+   console.log(Number.isFinite(11)) // true
+   console.log(Number.isFinite('11')) // false
+   console.log(isFinite('11')) //true
+   console.log(Number.isFinite(true)) // false
+   console.log(isFinite(true)) //true
+   console.log(Number.isFinite(Infinity)) // false
+   console.log(isFinite(Infinity)) // false
+   
+
+
+   console.log('==========')
+  // Number.isNaN()
+  console.log(Number.isNaN('11'))// false
+  console.log(Number.isNaN(11))// false
+  console.log(Number.isNaN(false))// false
+  console.log(Number.isNaN(NaN))// true
+
+
+  console.log('==========')
+// Number.isInteger
+  console.log(Number.isInteger(11)) //true
+  console.log(Number.isInteger('11')) //false
+  console.log(Number.isInteger(true)) //false
+
+    console.log('=============')
+    // Math.trunc()
+    console.log(Math.trunc(11.111))// 11
+
+
+    // Math.sign()
+
+    console.log(Math.sign(11)) // 1
+    console.log(Math.sign(0)) // 0
+    console.log(Math.sign(-11)) // -1
+    console.log(Math.sign(true)) // 1
+    console.log(Math.sign(false)) // 0
+    console.log(Math.sign(NaN)) // NaN
+    console.log(Math.sign(Infinity)) // 1
+
+
+
+
+</script>
