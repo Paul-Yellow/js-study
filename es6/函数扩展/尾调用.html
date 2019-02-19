@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数尾调用</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    {
+        // 尾调用的函数
+        function f(x) {
+            return g(x);
+        }
+    }
+     {
+        // 以下的情况为 非尾调用
+
+        {
+            // 情况一 有赋值操作
+            function f(x) {
+                let y = g(x);
+                return y;
+            }
+
+        }
+        {
+            // 情况二 外调用后还有其它操作
+            function f(x) {
+                return g(x) + 1;
+            }
+        }
+        {
+            // 情况三  相当于 return undefined
+            function f(x) {
+                g(x);
+            }
+        }
+
+    }
+    {
+        // 阶乘--递归
+        function factorial(n) {
+            if( n <= 1) return n
+            return n * factorial(n-1)
+        }
+        // 这种方式保存的调用记录为n个 如果改用尾调用就会形成1个调用记录。
+
+       function factorial(n,total) {
+           if(n <= 1) return total
+           return factorial( n-1, n*total )
+           
+       }
+
+    }
+    {
+        // 斐波那契数列 （兔子数列）
+        function Fibonacci (n) {
+            if ( n <= 1 ) {return 1};
+            return Fibonacci(n - 1) + Fibonacci(n - 2);
+        }
+
+        console.log(Fibonacci(10)) // 89
+        console.log(Fibonacci(100)) // 堆栈溢出
+   
+    }
+</script>

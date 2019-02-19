@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rest 参数</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // rest 参数可以把参数组合为数组，从而代替arguments, rest参数必须在函数参数的最后面
+    {
+        // 情况1
+        function a(...values) {
+            console.log(values)
+        }
+        a(1,2,3,4)
+    }
+   
+    {
+         // 情况2
+        function a(a,b,...values) {
+            console.log(a,b,values)
+        }
+        a(1,2,3,4)
+    }
+    {
+         // 情况3---rest参数必须放在最后  否则会报错
+        // function a(a,...values,b) {
+        //     console.log(a,b,values)
+        // }
+        // a(1,2,3,4)
+    }
+
+</script>
