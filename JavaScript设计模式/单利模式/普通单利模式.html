@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>普通单利模式</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+    // var Singleton = function (name) {
+    //     this.name = name
+    //     this.instance = null
+    // }
+    // Singleton.prototype.getName = function () {
+    //     console.log(this.name)
+    // }
+    
+    // Singleton.getInstance = function (name) {
+    //     if(!this.instance){
+    //         this.instance = new Singleton(name)
+    //     }
+    // }
+    // var a = Singleton.getInstance('张三')
+    // var b = Singleton.getInstance('李四')
+    // alert(a === b)
+
+
+// 另一种写法
+    var Singleton2 = function (name) {
+            this.name = name
+        }
+        Singleton2.prototype.getName = function () {
+            console.log(this.name)
+        }
+        
+        Singleton2.getInstance = (function () {
+            var instance = null;
+            return function (name) {
+                if(!instance){
+                instance = new Singleton2(name)
+                
+                }
+                return instance
+            }
+        })()
+        var c = Singleton2.getInstance('张三')
+        var d = Singleton2.getInstance('李四')
+        alert(c === d)
+        // console.log(a)
+        c.getName()
+        d.getName()
+       
+
+
+// 缺点：这两种单利方式具有不透明性，使用者必须知道这个单利类才可以。不可以通过new的方式来创建单利
+
+
+</script>

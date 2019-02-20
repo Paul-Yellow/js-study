@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>透明单利模式</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var Singleton = (function () {
+        var instance = null 
+        var Singleton = function (name) {
+            if(instance){
+                return instance
+            }
+            this.name = name
+            this.init()
+            return instance = this; 
+        }
+        Singleton.prototype.init = function () {
+            this.getName()
+            
+        }
+        Singleton.prototype.getName = function () {
+            console.log(this.name)
+            
+        }
+        return Singleton
+
+     })()
+     var a = new Singleton('张三')
+     var b = new Singleton('李四')
+       
+
+
+</script>
