@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>扩展运算符</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    {
+        // 通常用法
+        console.log(...[1, 2, 3])
+    }
+
+    {
+        let x = 1
+        // 可以写表达式
+        const arr = [
+            ...(x > 0 ? ['a'] : []),
+            3
+        ]
+    } 
+    {
+        // 可以是空数组
+        console.log(...[])
+    } 
+    {
+        //扩展运算符不能放在小括号内,会报错
+        // (...[1,2])
+    } 
+    {
+
+        // 替代函数apply
+        function fn(x, y, z) {
+            console.log(x, y, z)
+
+        }
+        fn.apply(null, [1, 2, 3]) // ES5
+        fn(...[1, 2, 3])
+    } 
+    {
+        // 求数组中的最大值 Math.max()
+        Math.max.apply(null,[1, 2, 3])
+
+        Math.max(...[1, 2, 3])
+    } 
+    {
+        //复制数组
+        let arr = [1, 2, 3]
+        let arr2 = arr.concat()
+        let arr3 = [...arr]
+
+    }
+    {
+        // 合并数组
+        let arr1 = [1]
+        let arr2 = [2]
+        let arr3 = arr1.concat(arr2)
+        let arr4 = [...arr1,...arr2]
+    }
+    {
+        // 与结构赋值共同使用
+        let arr = [1, 2, 3]
+        let a = arr[0]
+        let b = arr.slice(1)
+        let c = [a,...b] = arr
+        console.log(c)
+    }
+    {
+        // 字符串
+        let str = 'abc'
+        console.log(...str)
+    }
+</script>
