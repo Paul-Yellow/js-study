@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var Singleton = function (name) {
+        this.name = 11
+        
+    }
+    Singleton.prototype.getName = function () {
+        alert(this.name)
+        
+    }
+    
+    var ProxySingleton = (function () {
+        var instance = null;
+        return function (name) {
+            if(!instance){
+                instance = new Singleton(name)
+            
+        }
+        
+        return instance
+        }
+        
+           
+      
+    })()
+    var a = new ProxySingleton()
+    var b = new ProxySingleton()
+    alert(a==b)
+
+</script>

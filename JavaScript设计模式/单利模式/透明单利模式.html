@@ -11,30 +11,54 @@
 </body>
 </html>
 <script>
+    // var Singleton = (function () {
+    //     var instance = null 
+    //     var Singleton = function (name) {
+    //         if(instance){
+    //             return instance
+    //         }
+    //         this.name = name
+    //         this.init()
+    //         return instance = this; 
+    //     }
+    //     Singleton.prototype.init = function () {
+    //         this.getName()
+            
+    //     }
+    //     Singleton.prototype.getName = function () {
+    //         console.log(this.name)
+            
+    //     }
+    //     return Singleton
+
+    //  })()
+    //  var a = new Singleton('张三')
+    //  var b = new Singleton('李四')
+
+    // 生成闭包的环境，保存唯一类
     var Singleton = (function () {
-        var instance = null 
-        var Singleton = function (name) {
-            if(instance){
-                return instance
-            }
-            this.name = name
-            this.init()
-            return instance = this; 
-        }
-        Singleton.prototype.init = function () {
-            this.getName()
-            
-        }
-        Singleton.prototype.getName = function () {
-            console.log(this.name)
-            
-        }
-        return Singleton
+        // 声明保存实例
+        var instance = null;
+        // 重新定义这个类
+       var Singleton = function (name) {
+           if(instance){
+               return instance
+           }
+           this.name = name
+           // 保存这个类
+           return instance = this
+       }
+       Singleton.prototype.getName=function () {
+           alert(this.name)
+       }
+       return Singleton
+        
+    })()
 
-     })()
-     var a = new Singleton('张三')
-     var b = new Singleton('李四')
-       
-
+    var a = new Singleton('11')
+    var b = new Singleton('22')
+    alert(a===b)
+    a.getName()
+    b.getName()
 
 </script>

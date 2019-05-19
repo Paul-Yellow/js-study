@@ -1,63 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>普通单利模式</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>普通单利模式</title>
+    </head>
+    <body></body>
 </html>
 <script>
-    
+    // var Singleton = function (name) {
+    //     this.name = name
+    //     this.instance = null
+    // }
+    // Singleton.prototype.getName = function () {
+    //     console.log(this.name)
+    // }
+
+    // Singleton.getInstance = function (name) {
+    //     if(!this.instance){
+    //         this.instance = new Singleton(name)
+    //     }
+    // }
+    // var a = Singleton.getInstance('张三')
+    // var b = Singleton.getInstance('李四')
+    // alert(a === b)
+
+    // 另一种写法
+    // var Singleton2 = function (name) {
+    //         this.name = name
+    //     }
+    //     Singleton2.prototype.getName = function () {
+    //         console.log(this.name)
+    //     }
+
+    //     Singleton2.getInstance = (function () {
+    //         var instance = null;
+    //         return function (name) {
+    //             if(!instance){
+    //             instance = new Singleton2(name)
+
+    //             }
+    //             return instance
+    //         }
+    //     })()
+    //     var c = Singleton2.getInstance('张三')
+    //     var d = Singleton2.getInstance('李四')
+    //     alert(c === d)
+    //     // console.log(a)
+    //     c.getName()
+    //     d.getName()
+
+    // 缺点：这两种单利方式具有不透明性，使用者必须知道这个单利类才可以。不可以通过new的方式来创建单利
+
+    // 1遍
+    // 定义私有的属性
+    // var Singleton = function(name) {
+    //     this.name = name;
+    //     this.instance = null;
+    // };
+    // // 在原型上定义方法
+    // Singleton.prototype.getName = function() {
+    //     alert(this.name);
+    // };
+
+    // // 暴露获取单利的方法
+    // Singleton.getInstance = function(name) {
+    //     if (!this.instance) {
+    //         this.instance =  new Singleton(name);
+    //     }
+    //     return  this.instance;
+    // };
+    // var a = Singleton.getInstance('张三')
+    // var b = Singleton.getInstance('Bob')
+    // alert(a===b)
+    // console.log(a)
     var Singleton = function (name) {
         this.name = name
-        this.instance = null
+        
     }
     Singleton.prototype.getName = function () {
-        console.log(this.name)
+        alert(this.name)
     }
-    
-    Singleton.getInstance = function (name) {
-        if(!this.instance){
-            this.instance = new Singleton(name)
-        }
-    }
-    var a = Singleton.getInstance('张三')
-    var b = Singleton.getInstance('李四')
-    alert(a === b)
+   // 利用闭包的形式保存唯一的实例
+    Singleton.getInstance = (function () {
+        var instance = null
+        return function (name) {
+            if(!instance){
+                instance = new Singleton(name)
+            }
+            return instance
 
-
-// 另一种写法
-    var Singleton2 = function (name) {
-            this.name = name
-        }
-        Singleton2.prototype.getName = function () {
-            console.log(this.name)
         }
         
-        Singleton2.getInstance = (function () {
-            var instance = null;
-            return function (name) {
-                if(!instance){
-                instance = new Singleton2(name)
-                
-                }
-                return instance
-            }
-        })()
-        var c = Singleton2.getInstance('张三')
-        var d = Singleton2.getInstance('李四')
-        alert(c === d)
-        // console.log(a)
-        c.getName()
-        d.getName()
-       
+    })()
+
+    var a = Singleton.getInstance('aa')
+    var b = Singleton.getInstance('aa')
+    console.log(Object.prototype.toString.call(a))
+
+    alert(a===b)
+    a.getName()
 
 
-// 缺点：这两种单利方式具有不透明性，使用者必须知道这个单利类才可以。不可以通过new的方式来创建单利
 
+
+    
+    
 
 </script>

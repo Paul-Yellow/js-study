@@ -102,4 +102,24 @@
         }
     })();
  ```
+3. 通用惰性单例模式
+```
+    // 1.我们可以通过变量存不存在来决定单例代码是否执行
+    // 2.我们需要把不变的部分隔离出来,管理单例的逻辑从代码中抽离出来
+    var Singleton = function (fn) {
+        var instance;
+        return function () {
+            return instance||(instance=fn.apply(this,arguments))
+        }
+    }
+   var CreateDiv = function (content) {
+       var div = document.createElement('div')
+       div.innerHTML = content
+       document.body.appendChild( div );
 
+       
+   }
+   var getSingleCreateDiv = Singleton(CreateDiv)
+
+    getSingleCreateDiv('1111111')
+```
