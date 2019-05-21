@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//  function* foo() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
+//   yield 4;
+//   yield 5;
+//   yield 6;
+// }
+
+
+// for (let v of foo()) {
+//   console.log(v);
+// }
+// var gen = foo()
+// console.log(gen.next())
+// console.log(gen.next())
+// console.log(gen.next())
+// console.log(gen.next())
+// console.log(gen.next())
+// console.log(gen.next())
+// console.log(gen.next())
+// console.log(gen.next())
+
+
+
+// function* fibonacci() {
+//   let [prev, curr] = [0, 1];
+//   for (;;) {
+//     console.log([prev, curr])
+//     yield curr; // 1 1
+//     [prev, curr] = [curr, prev + curr];
+    
+//   }                   
+
+// }
+// var gen  = fibonacci()
+
+
+// for (let n of fibonacci()) {
+//   if (n > 100) break;
+//   console.log(n);
+// }
+
+var clock = function* () {
+  while (true) {
+    console.log('Tick!');
+    yield;
+    console.log('Tock!');
+    yield;
+  }
+};
+var o = clock()
+console.log(o.next())
+console.log(o.next())
+console.log(o.next())
+</script>

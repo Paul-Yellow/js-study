@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body></body>
+</html>
+<script>
+    function* F() {
+        yield this.name = 'generator'
+    }
+
+    F.prototype.getName = function() {
+        console.log(this.name) //undefind 这里拿不到定义的状态
+        console.log(this) // F {<suspended>}
+        console.log('gen') // 'gen'
+    };
+    // 声明一个空的对象
+    var obj = {};
+    var f = F.call(obj);
+    f.next()
+    f instanceof F; // true
+    f.getName(); //标注在实例方法中
+    console.log(obj.name) //这里也是只用执行了next()方法后才能打印出  generator' ，否则就是undefined
+    
+
+
+
+    function* F() {
+        yield this.name = 'generator'
+    }
+
+    F.prototype.getName = function() {
+        console.log(this.name) //undefind 这里拿不到定义的状态
+        console.log(this) // F {<suspended>}
+        console.log('gen') // 'gen'
+    };
+    // F自己原型
+    var f = F.call(F.prototype);
+    f.next()
+    f instanceof F; // true
+    f.getName(); //标注在实例方法中
+    console.log(f.name) //这里也是只用执行了next()方法后才能打印出  generator' ，否则就是undefined
+    
+
+
+
+</script>
