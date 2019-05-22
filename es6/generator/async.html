@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>async</title>
+    </head>
+    <body></body>
+</html>
+<script>
+    // 2s 之后返回双倍的值
+    var syn = function() {
+        return new Promise(function(resolve, reject) {
+            setTimeout(() => {
+                resolve(1);
+            }, 3000);
+        });
+    };
+    async function getSync(params) {
+        await syn();
+        console.log(2);
+    }
+    getSync()
+</script>
