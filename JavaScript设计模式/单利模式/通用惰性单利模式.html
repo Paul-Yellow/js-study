@@ -10,7 +10,7 @@
     
 </body>
 </html>
-<script>
+<!-- <script>
     // 1.我们可以通过变量存不存在来决定单例代码是否执行
     // 2.我们需要把不变的部分隔离出来,管理单例的逻辑从代码中抽离出来
     var Singleton = function (fn) {
@@ -29,4 +29,26 @@
    var getSingleCreateDiv = Singleton(CreateDiv)
 
     getSingleCreateDiv('1111111')
+</script> -->
+
+<script>
+    var Singleton = function (fn) {
+        var instance = null;
+        return function () {
+            return instance || (fn.apply(this,arguments))
+
+            
+        }
+
+        
+    }
+    var CreateDiv = function (params) {
+        var div = document.createElement('div')
+        console.log(params)
+        div.innerHTML = params
+        document.body.appendChild(div)
+        
+    }
+    var getSingleCreateDiv = Singleton(CreateDiv)
+    getSingleCreateDiv('1111','2222')
 </script>

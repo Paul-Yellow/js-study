@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body></body>
 </html>
 
-<script>
+<!-- <script>
     var Singleton = function (name) {
         this.name = 11
         
@@ -39,4 +37,21 @@
     var b = new ProxySingleton()
     alert(a==b)
 
-</script>
+</script> -->
+<!-- <script>
+    var Singleton = function (name) {
+        this.name = name
+    }
+    Singleton.getName = function () {
+        alert(this.name)
+    }
+    var ProxySingleton = (function () {
+        var instance = null
+        return function (name) {
+            return instance || (instance = new Singleton(name))
+        }
+    })()
+    var a = new ProxySingleton('111')
+    var b = new ProxySingleton('222')
+    alert(a==b)
+</script> -->

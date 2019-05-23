@@ -75,37 +75,41 @@
     // var b = Singleton.getInstance('Bob')
     // alert(a===b)
     // console.log(a)
-    var Singleton = function (name) {
-        this.name = name
-        
-    }
-    Singleton.prototype.getName = function () {
-        alert(this.name)
-    }
-   // 利用闭包的形式保存唯一的实例
-    Singleton.getInstance = (function () {
-        var instance = null
-        return function (name) {
-            if(!instance){
-                instance = new Singleton(name)
-            }
-            return instance
-
-        }
-        
-    })()
-
-    var a = Singleton.getInstance('aa')
-    var b = Singleton.getInstance('aa')
-    console.log(Object.prototype.toString.call(a))
-
-    alert(a===b)
-    a.getName()
+   
 
 
 
+
+
+var Singleton = function (name) {
+    this.name = name
 
     
+}
+Singleton.prototype.getName = function () {
+    alert(this.name)
+    
+}
+// Singleton.getInstance = function(name) {
+//     if(!this.instance){
+//         this.instance =  new Singleton(name)
+
+//     }
+//     return this.instance
+    
+// }
+Singleton.getInstance = (function () {
+    var instance = null
+    return function (name) {
+     return instance || (instance = new Singleton(name))
+    }
+    
+})()
+   var a = Singleton.getInstance('zhangsan')
+   var b = Singleton.getInstance('李四')
+   alert(a===b)
+   a.getName()
+   b.getName()
     
 
 </script>

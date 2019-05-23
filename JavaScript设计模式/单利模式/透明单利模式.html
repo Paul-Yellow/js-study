@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>透明单利模式</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>透明单利模式</title>
+    </head>
+    <body></body>
 </html>
-<script>
+<!-- <script>
     // var Singleton = (function () {
     //     var instance = null 
     //     var Singleton = function (name) {
@@ -61,4 +59,25 @@
     a.getName()
     b.getName()
 
-</script>
+</script> -->
+
+<!-- <script>
+    // 手动为构造函数返回值切记慎用
+    var Singleton = (function() {
+        var instance = null;
+        var Singleton2 = function (name) {
+            if(instance) return instance
+            this.name = name
+              return  instance = this
+        }
+        Singleton2.prototype.getName = function () {
+            alert(this.name)
+        }
+       return Singleton2
+
+    })();
+    var a = new Singleton('zhangsan')
+    var b = new Singleton('李四')
+    alert(a===b)
+    b.getName()
+</script> -->
