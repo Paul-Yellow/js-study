@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>绝对定位布局</title>
+    <style type="text/css">
+      .wrap2 div{
+            position: absolute;
+            min-height: 200px;
+        }
+        .wrap2 .left{
+            left: 0;
+            width: 300px;
+            background: red;
+        }
+        .wrap2 .right{
+            right: 0;
+            width: 300px;
+            background: blue;
+        }
+        .wrap2 .center{
+            left: 300px;
+            right: 300px;
+            background: pink;
+        } 
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap2 wrap">
+        <div class="left"></div>
+        <div class="center">
+            绝对定位布局
+        </div>
+        <div class="right"></div>
+    </div>
+
+</body>
+</html>

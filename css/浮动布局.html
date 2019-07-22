@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>浮动布局</title>
+        <style type="text/css">
+            .wrap1 div {
+                min-height: 200px;
+            }
+            .wrap1 .left {
+                float: left;
+                width: 300px;
+                background: red;
+            }
+            .wrap1 .right {
+                float: right;
+                width: 300px;
+                background: blue;
+            }
+            .wrap1 .center {
+                background: pink;
+                margin: 0 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 已知布局元素的高度，写出三栏布局，要求左栏、右栏宽度各为300px，中间自适应。 -->
+        <div class="wrap1">
+            <div class="left">1111</div>
+            <div class="right">2222</div>
+            <div class="center">
+                浮动布局
+            </div>
+        </div>
+    </body>
+</html>

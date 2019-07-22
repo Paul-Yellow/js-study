@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>class</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+
+
+// function Demo() {
+//     this.a = 1
+//     this.b = 2
+    
+// }
+// Demo.prototype.sayHellow =function(){
+//     console.log('hellow')
+// }
+
+// Demo.say = function () {
+//     console.log('say something')
+    
+// }
+// function Demo2() {
+//     Demo.call(this)
+    
+// }
+// Demo2.prototype = new Demo()
+// var b = new Demo2()
+// Demo.say()
+// Demo2.say()
+
+
+// class staicDemo{
+//     static sayHellow(){
+//         alert('hellow')
+//     }
+// }
+// class Demo2 extends staicDemo{
+
+// }
+// Demo2.sayHellow()
+
+
+// function Person(name) {
+//    console.log(new.target)
+//   if (new.target !== undefined) {
+//     this.name = name;
+//   } else {
+//     throw new Error('必须使用 new 命令生成实例');
+//   }
+// }
+// var person = new Person('张三')
+
+class Demo {
+    constructor(){
+        this.x = 1
+        this.y = 2
+    }
+    sayHellow(){
+        console.log('hellow')
+
+    }
+}
+class Demo2 extends Demo{
+    constructor(a){
+        super(a)
+        this.z = 3
+    }
+
+}
+
+var a = new Demo2()
+console.log(a.z)
+
+
+
+
+
+</script>

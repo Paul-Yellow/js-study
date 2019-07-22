@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>flex布局</title>
+    <style type="text/css">
+      .wrap3{
+            
+            display: flex;
+            min-height: 200px;
+        }
+        .wrap3 .left{            
+            flex-basis: 300px;
+            background: red;
+        }
+        .wrap3 .right{            
+            flex-basis: 300px;
+            background: blue;
+        }
+        .wrap3 .center{
+            flex: 1;
+            background: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap3 wrap">
+        <div class="left"></div>
+        <div class="center">
+            flex布局
+        </div>
+        <div class="right"></div>
+    </div>
+
+</body>
+</html>

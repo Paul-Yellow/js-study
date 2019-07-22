@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>table-cell表格布局</title>
+    <style type="text/css">
+      .wrap4{
+            display: table;
+            width: 100%;
+            height: 200px;
+        }
+        .wrap4>div{
+            display: table-cell;
+        }
+        .wrap4 .left{           
+            width: 300px;
+            background: red;
+        }
+        .wrap4 .right{          
+            width: 300px;
+            background: blue;
+        }
+        .wrap4 .center{
+            background: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap4 wrap">
+        <div class="left"></div>
+        <div class="center">
+            表格布局
+        </div>
+        <div class="right"></div>
+    </div>
+
+</body>
+</html>
